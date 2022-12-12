@@ -1,6 +1,7 @@
 package main
 
 import (
+	"app/pkg/book"
 	"app/pkg/config"
 	database "app/pkg/db"
 	"app/pkg/health"
@@ -60,6 +61,9 @@ func setupRoutes() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/api/health", health.Healthcheck).Methods("GET")
 	r.HandleFunc("/api/user", user.CreateUser).Methods("POST")
+	r.HandleFunc("/api/books", book.AddBooks).Methods("POST")
+	r.HandleFunc("/api/books", book.GetBooks).Methods("GET")
+	r.HandleFunc("/api/book/{name}", book.GetBook).Methods("GET")
 
 	return r
 }
