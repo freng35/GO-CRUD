@@ -13,3 +13,9 @@ func GetUserByPhone(user model.User) model.User {
 	DB.Find(&tmpUser, "phone = ?", user.Phone)
 	return tmpUser
 }
+
+func GetUserById(user model.User) model.User {
+	var tmpUser model.User
+	DB.Find(&tmpUser, "id = ?", user.Id)
+	return tmpUser
+}

@@ -26,3 +26,9 @@ func GetBooks() []model.Book {
 	DB.Find(&tmpBooks)
 	return tmpBooks
 }
+
+func DelBook(book model.Book) {
+	DB.Model(book).Where("name = ?", book.Name).Updates(
+		map[string]interface{}{
+			"amount": gorm.Expr("amount - ?", 1)})
+}

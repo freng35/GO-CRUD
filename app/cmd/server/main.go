@@ -1,11 +1,12 @@
 package main
 
 import (
-	"app/pkg/book"
+	"app/pkg/api/book"
+	"app/pkg/api/health"
+	"app/pkg/api/order"
+	"app/pkg/api/user"
 	"app/pkg/config"
 	database "app/pkg/db"
-	"app/pkg/health"
-	"app/pkg/user"
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
 	"net/http"
@@ -64,6 +65,7 @@ func setupRoutes() *mux.Router {
 	r.HandleFunc("/api/books", book.AddBooks).Methods("POST")
 	r.HandleFunc("/api/books", book.GetBooks).Methods("GET")
 	r.HandleFunc("/api/book/{name}", book.GetBook).Methods("GET")
+	r.HandleFunc("/api/order", order.CreateOrder).Methods("POST")
 
 	return r
 }

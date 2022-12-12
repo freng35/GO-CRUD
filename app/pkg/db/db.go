@@ -11,7 +11,7 @@ import (
 var DB *gorm.DB
 
 func createTables(db *gorm.DB) error {
-	err := db.AutoMigrate(&model.User{}, &model.Book{})
+	err := db.AutoMigrate(&model.User{}, &model.Book{}, &model.Order{})
 
 	return err
 }

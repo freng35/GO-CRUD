@@ -10,3 +10,8 @@ type Book struct {
 	Name   string `json:"name" gorm:"column:name;type:varchar(255);not null"`
 	Amount int    `json:"amount" gorm:"column:amount;type:int;not null"`
 }
+
+type Order struct {
+	UserId   string `json:"userId" gorm:"column:user_id;type:varchar(255);not null"`
+	BookName string `json:"bookName" gorm:"column:book_name;type:varchar(255);not null"`
+}

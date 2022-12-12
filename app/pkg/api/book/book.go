@@ -27,7 +27,7 @@ func AddBooks(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-
+	// TODO AMOUNT < 0
 	for _, book := range books {
 		addBook(book)
 	}
